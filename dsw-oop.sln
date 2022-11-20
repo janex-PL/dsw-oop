@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lista1", "Lista1\Lista1.csproj", "{F4B43018-F497-4E2A-977D-B59F8B6A4216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "List1", "List1\List1.csproj", "{F4B43018-F497-4E2A-977D-B59F8B6A4216}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lista2", "Lista2\Lista2.csproj", "{5C33BDC9-2E6A-4676-8595-C9808432F01A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "List2", "List2\List2.csproj", "{5C33BDC9-2E6A-4676-8595-C9808432F01A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
