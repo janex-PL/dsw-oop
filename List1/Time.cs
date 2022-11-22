@@ -1,4 +1,4 @@
-﻿namespace DSW_ProgramowanieObiektowe.Lista1;
+﻿namespace List1;
 public class Time
 {
     public double TotalSeconds { get; private set; }

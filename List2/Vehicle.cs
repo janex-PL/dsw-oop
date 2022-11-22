@@ -1,4 +1,4 @@
-﻿namespace Lista2;
+﻿namespace List2;
 public abstract class Vehicle
 {
     public string Id { get; }

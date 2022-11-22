@@ -1,4 +1,4 @@
-﻿namespace Lista2;
+﻿namespace List2;
 public class Truck : Vehicle
 {
     private static int _idCounter = 1;

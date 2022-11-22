@@ -1,4 +1,4 @@
-﻿using DSW_ProgramowanieObiektowe.Lista1;
+﻿using List1;
 
 TaskSolver.SolveFirstTask();
 

@@ -1,4 +1,4 @@
-﻿namespace Lista2;
+﻿namespace List2;
 public class Warehouse
 {
     private readonly object _syncObject = new();

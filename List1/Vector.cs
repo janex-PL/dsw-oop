@@ -1,4 +1,4 @@
-﻿namespace DSW_ProgramowanieObiektowe.Lista1;
+﻿namespace List1;
 public class Vector
 {
     public Heading Heading { get; } = Heading.None;

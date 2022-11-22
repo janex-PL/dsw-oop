@@ -1,4 +1,4 @@
-﻿namespace Lista2;
+﻿namespace List2;
 public class Simulation
 {
     public Dictionary<string,List<Vehicle>> Vehicles { get; }= new();

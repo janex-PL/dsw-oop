@@ -1,4 +1,4 @@
-﻿using Lista2;
+﻿using List2;
 
 var simulation = new Simulation();
 

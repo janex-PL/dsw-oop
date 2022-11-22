@@ -1,4 +1,4 @@
-﻿namespace DSW_ProgramowanieObiektowe.Lista1;
+﻿namespace List1;
 public enum Heading
 {
     None = 0,
