@@ -12,8 +12,8 @@ internal class Factorial
     {
         return count switch
         {
-            < 0 => throw new NegativeValueException(),
-            0 => 1,
+            < 0 => throw new NegativeValueException($"Factorial cannot be calculated, because input was lesser than 0, actual value: {count}"),
+            <= 1 => 1,
             _ => count * Calculate(count - 1)
         };
     }

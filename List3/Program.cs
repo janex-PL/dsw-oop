@@ -35,5 +35,5 @@ Console.WriteLine($"Current animal count in enclosure: {birdsEnclosure.Count}");
 
 // No compile time errors and runtime exceptions, but the cast fails with fallback to null
 //birdsEnclosure.Add((Animal) new Mammal("Mammal_A") as Bird);
-
+Console.Write("Press any key to continue");
 Console.ReadKey();
