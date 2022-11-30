@@ -26,20 +26,20 @@ public class Simulation
 
         Console.WriteLine("Transporting containers from New York to Gdansk");
 
-        TransportContainers(x => true, Warehouses["New York"], Warehouses["Gdansk"], Vehicles[nameof(Ship)]).GetAwaiter().GetResult();
+        TransportContainers(x => true, Warehouses["New York"], Warehouses["Gdansk"], Vehicles[nameof(Ship)]);
 
         Console.WriteLine("Transporting containers from Gdansk to Wroclaw");
 
-        TransportContainers(x => true, Warehouses["Gdansk"], Warehouses["Wroclaw"], Vehicles[nameof(Train)]).GetAwaiter().GetResult();
+        TransportContainers(x => true, Warehouses["Gdansk"], Warehouses["Wroclaw"], Vehicles[nameof(Train)]);
 
         Console.WriteLine("Transporting shoes and clothes from Wroclaw to Poznan");
 
         TransportContainers(x => x.Content.GoodsType is GoodsType.Clothes or GoodsType.Shoes, Warehouses["Wroclaw"],
-            Warehouses["Poznan"], Vehicles[nameof(Truck)]).GetAwaiter().GetResult();
+            Warehouses["Poznan"], Vehicles[nameof(Truck)]);
 
         Console.WriteLine("Transporting electronic parts from Wroclaw to Krakow");
         TransportContainers(x => x.Content.GoodsType is GoodsType.ElectronicParts, Warehouses["Wroclaw"],
-            Warehouses["Krakow"], Vehicles[nameof(Truck)]).GetAwaiter().GetResult();
+            Warehouses["Krakow"], Vehicles[nameof(Truck)]);
 
         Console.WriteLine(new string('#',25));
 
@@ -53,6 +53,7 @@ public class Simulation
 
     private void InitializeSimulation()
     {
+        // adding available goods
         var goods = new List<Goods>
         {
             new(GoodsType.ElectronicParts),
@@ -61,7 +62,8 @@ public class Simulation
             new(GoodsType.Shoes)
         };
         goods.ForEach(g => Goods.Add(g.GoodsType, g));
-
+        
+        // adding available warehouses
         var warehouses = new List<Warehouse>
         {
             new("New York"),
@@ -72,6 +74,7 @@ public class Simulation
         };
         warehouses.ForEach(w => Warehouses.Add(w.Location, w));
 
+        // adding available vehicles
         Vehicles.Add(nameof(Ship),new List<Vehicle>
         {
             new Ship("Gdansk")
@@ -96,12 +99,14 @@ public class Simulation
             new Truck("Gdansk"),
             new Truck("Gdansk"),
         });
-
+        
+        // adding containers
         Containers.AddRange(Enumerable.Range(0,10).Select(x => new Container(Goods[GoodsType.ElectronicParts])));
         Containers.AddRange(Enumerable.Range(0,20).Select(x => new Container(Goods[GoodsType.Cellphones])));
         Containers.AddRange(Enumerable.Range(0,5).Select(x => new Container(Goods[GoodsType.Shoes])));
         Containers.AddRange(Enumerable.Range(0,5).Select(x => new Container(Goods[GoodsType.Clothes])));
 
+        // loading containers to starting point
         Warehouses["New York"].LoadContainers(Containers);
     }
 
@@ -113,7 +118,7 @@ public class Simulation
 
         var target = Warehouses["Gdansk"];
 
-        TransportContainers((c => true), source, target, ships).GetAwaiter().GetResult();
+        TransportContainers((c => true), source, target, ships);
     }
 
     private void MoveAllContainersToWroclaw()
@@ -124,31 +129,47 @@ public class Simulation
 
         var target = Warehouses["Wroclaw"];
 
-        TransportContainers(c => true, source,target,trains).GetAwaiter().GetResult();
+        TransportContainers(c => true, source,target,trains);
+    }
+
+    private bool TransportContainers(Func<Container, bool> containerQuery, Warehouse source, Warehouse target,
+        Vehicle transport)
+    {
+        // containers need to be reserved before travel
+        if (!source.ReserveContainers(containerQuery, transport))
+            return false;
+        
+        // if vehicle is not at source Warehouse, then an additional travel is performed
+        if (transport.Location != source.Location)
+            transport.Travel(source);
+        
+        // loading previously reserved containers
+        source.LoadToVehicle(transport);
+
+        // traveling to target Warehouse
+        transport.Travel(target);
+
+        // unloading containers at target Warehouse
+        transport.UnloadToWarehouse(target);
+        return true;
     }
 
     private void TransportContainers(Func<Container, bool> containerQuery, Warehouse source, Warehouse target,
-        Vehicle transport)
-    {
-        while (source.ReserveContainers(containerQuery,transport))
-        {
-            if (transport.Location != source.Location)
-                transport.Travel(source);
-
-            source.LoadToVehicle(transport);
-
-            transport.Travel(target);
-
-            transport.UnloadToWarehouse(target);
-        }
-    }
-
-    private async Task TransportContainers(Func<Container, bool> containerQuery, Warehouse source, Warehouse target,
         List<Vehicle> transport)
     {
-        var tasks = transport.Select(vehicle => Task.Run(() => TransportContainers(containerQuery,source,target,vehicle))).ToList();
+        // if there are vehicles already at source Warehouse, then they should be used first
+        transport = transport.OrderBy(v => v.Location.Equals(source.Location) ? 0 : 1).ToList();
 
-        await Task.WhenAll(tasks);
+        bool containersTransported = false;
+
+        while (!containersTransported)
+        {
+            // performing transports until there are no containers left matching query at the source Warehouse
+            if (transport.Any(vehicle => !TransportContainers(containerQuery, source, target, vehicle)))
+            {
+                containersTransported = true;
+            }
+        }
     }
 
 }

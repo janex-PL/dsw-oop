@@ -1,10 +1,9 @@
 ﻿namespace List2;
 public class Warehouse
 {
-    private readonly object _syncObject = new();
     public string Location { get; }
-    private List<Container> Containers { get; } = new();
-    private Dictionary<string, List<Container>> ReservedContainers { get; } = new();
+    public List<Container> Containers { get; } = new();
+    public Dictionary<string, List<Container>> ReservedContainers { get; } = new();
 
     public Warehouse(string location)
     {
@@ -28,20 +27,16 @@ public class Warehouse
             Console.WriteLine($"[{Location}] Vehicle {vehicle.Id} has already reserved containers in this warehouse");
             return false;
         }
+        
+        var containers = Containers.Where(query).Take(vehicle.GetAvailableCapacity()).ToList();
+        if (!containers.Any())
+            return false;
 
-        lock (_syncObject)
-        {
-            var containers = Containers.Where(query).Take(vehicle.GetAvailableCapacity()).ToList();
-            if (!containers.Any())
-                return false;
+        ReservedContainers.Add(vehicle.Id,containers);
 
-            ReservedContainers.Add(vehicle.Id,containers);
-
-            containers.ForEach(c => Containers.Remove(c));
+        containers.ForEach(c => Containers.Remove(c));
             
-            Console.WriteLine($"[{Location}] {containers.Count} containers reserved for vehicle {vehicle.Id}");
-
-        }
+        Console.WriteLine($"[{Location}] {containers.Count} containers reserved for vehicle {vehicle.Id}");
 
         return true;
     }

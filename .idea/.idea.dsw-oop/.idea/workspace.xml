@@ -11,17 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78bd6a6f-9723-4cd7-93e7-4c5759791bcc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/List4/Address.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/List4/Exceptions/Stack/IllegalArgumentException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/List4/Exceptions/Stack/StackEmptyException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/List4/Exceptions/Stack/StackFullException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/List4/Stack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/List4/TaskSolver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dsw-oop/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dsw-oop/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dsw-oop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dsw-oop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List3/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List3/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List4/Exceptions/Factorial/NegativeValueException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List4/Exceptions/Factorial/NegativeValueException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List4/Factorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List4/Factorial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List4/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List4/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/List2/Simulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List2/Simulation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/List2/Vehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List2/Vehicle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/List2/Warehouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/List2/Warehouse.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +24,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92372a7a87f04c438983a1315d43340a3d200/2e/3df2b89c/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a03bef28fa5844aea9c9d6687d085aad94de00/0b/d1a32e3e/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a03bef28fa5844aea9c9d6687d085aad94de00/83/b0a75333/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a4774f49119b4b30aea63a7a609204716e200/73/3736b4eb/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,14 +45,22 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/yanex/RiderProjects/dsw-oop/List2/puml&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.plantuml.idea.settings.PlantUmlSettingsPage&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;IgnoreLang&quot;
+    ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.List4">
+  <component name="RunManager" selected=".NET Project.List2">
     <configuration name="List1" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -138,7 +143,12 @@
       <option name="presentableId" value="Default" />
       <updated>1669134075475</updated>
       <workItem from="1669134084224" duration="2514000" />
-      <workItem from="1669234437609" duration="6890000" />
+      <workItem from="1669234437609" duration="7713000" />
+      <workItem from="1669831372983" duration="688000" />
+      <workItem from="1669832084608" duration="495000" />
+      <workItem from="1669832618813" duration="1931000" />
+      <workItem from="1669844351620" duration="1446000" />
+      <workItem from="1669846572086" duration="4496000" />
     </task>
     <servers />
   </component>
@@ -148,5 +158,28 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/List2/Simulation.cs</url>
+          <line>169</line>
+          <properties documentPath="$PROJECT_DIR$/List2/Simulation.cs" initialLine="166" containingFunctionPresentation="method 'TransportContainers'">
+            <startOffsets>
+              <option value="5856" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5857" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

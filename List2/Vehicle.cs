@@ -8,8 +8,6 @@ public abstract class Vehicle
 
     public static int TotalTravelCount { get; private set; } = 0;
 
-    private static readonly object _travelCountLock = new();
-
     public Vehicle(string id, string location)
     {
         Id = id;
@@ -30,11 +28,8 @@ public abstract class Vehicle
 
         Console.WriteLine($"[{Id}] {GetTravelDetails(destination.Location)}");
         Location = destination.Location;
-
-        lock (_travelCountLock)
-        {
-            TotalTravelCount++;
-        }
+        
+        TotalTravelCount++;
     }
 
 
@@ -43,7 +38,7 @@ public abstract class Vehicle
         if (_containers.Count >= GetMaxCapacity())
             throw new Exception($"Cannot load {container} to vehicle {Id}, because it's full");
 
-        //Console.WriteLine($"Loading {container} to vehicle {Id}");
+        Console.WriteLine($"Loading {container} to vehicle {Id}");
 
         container.Location = Id;
         _containers.Add(container);
