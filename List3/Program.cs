@@ -1,14 +1,25 @@
 ﻿using List3;
 
+Console.WriteLine(new string('#',20));
+Console.WriteLine("Task #1");
+
+Console.WriteLine("Creating pairs and displaying max values\n");
+
 var stringPair = new Pair<string>("left-value", "right-value");
 var intPair = new Pair<int>(-10, 10);
 var doublePair = new Pair<double>(-10.5, 10.5);
 
-Console.WriteLine(new string('#',20));
-Console.WriteLine("Task #1");
+Console.WriteLine(stringPair + ", Max value: " + stringPair.Max());
+Console.WriteLine(intPair + ", Max value: " + intPair.Max());
+Console.WriteLine(doublePair + ", Max value: " + doublePair.Max());
 
-
-
+Console.WriteLine("\nSwapping and displaying pairs with max values");
+stringPair.Swap();
+intPair.Swap();
+doublePair.Swap();
+Console.WriteLine(stringPair + ", Max value: " + stringPair.Max());
+Console.WriteLine(intPair + ", Max value: " + intPair.Max());
+Console.WriteLine(doublePair + ", Max value: " + doublePair.Max());
 
 Console.WriteLine(new string('#',20));
 Console.WriteLine("Task #2");

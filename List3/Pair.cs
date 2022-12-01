@@ -17,11 +17,11 @@ internal class Pair<T> where T : IComparable
 
     public override string ToString()
     {
-        return $"Left: {Left}\tRight: {Right}";
+        return $"Left: {Left}".PadRight(20,' ') + $"Right: {Right}";
     }
 
     public T Max()
     {
-        return Left.CompareTo(Right) < 0 ? Left : Right;
+        return Left.CompareTo(Right) < 0 ? Right : Left;
     }
 }
